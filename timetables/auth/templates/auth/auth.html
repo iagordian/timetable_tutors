@@ -1,0 +1,41 @@
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div id="logg_area">
+
+    <div id="log_form">
+
+        <div class="log_title">
+            <h1>
+                Авторизация
+            </h1>
+        </div>
+
+        <div class="flash">
+            {% for msg in get_flashed_messages() %}
+                <p>{{msg}}</p>
+            {% endfor %}
+        </div>
+
+        <div >
+
+            <form id="log_form_content" action="{{url_for('auth_bp.authorization')}}" method="POST">
+
+                <input class="log_input" name="login" placeholder="Логин">
+
+                <input class="log_input" name="password" placeholder="Пароль" type="password">
+
+                <input class="log_submit"  type="submit" value="Войти">
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

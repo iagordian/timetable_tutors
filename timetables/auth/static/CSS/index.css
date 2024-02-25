@@ -1,0 +1,113 @@
+
+#logg_area{
+    background-color: #fff5ee;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+}
+
+/* Заголовок */
+
+.log_title {
+    margin-top: 90px;
+    text-align: center;
+}
+
+.log_title h1 {
+    font-family: 'Merriweather', serif;
+    position: relative;
+    font-size: 32px;
+    font-weight: normal;
+    display: inline-block;
+    margin: 0;
+    line-height: 1;
+
+
+    border: none;
+    font-size: 32px;
+
+    margin-top: 30px;
+}
+
+
+#log_form_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.log_input{
+    background: transparent;
+    width: 30%;
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 30px 40px;
+    margin: 30px auto;
+    font-size: 22px;
+}
+
+.log_input:focus{
+    border: none;
+}
+
+.log_input::placeholder {
+    font-style: italic;
+}
+
+.log_submit{
+    font-family: 'Merriweather', serif;
+    width: 30%;
+    font-size: 26px;
+    border: 1px solid #6f6a63;
+    background: transparent;
+    padding: 18px 24px;
+    margin: 60px auto;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.log_submit:hover{
+    background: #f3bd97;
+}
+
+
+
+.log_submit:active{
+    background: #db9360;
+}
+
+.flash{
+    margin-top: 30px;
+    height: 35px;
+    text-align: center;
+}
+
+.flash p{
+    color: red;
+}
+
+#logout{
+    background: #F5D7BF;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    margin: 0 1%;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.logout_img{
+    width: 50px;
+    height: 50px;
+}
+
+#logout:hover{
+    background: #E39250;
+}
+
+#logout:active {
+    background: radial-gradient(#E39250, #e59c61, #E39250);
+}

@@ -1,0 +1,11 @@
+
+
+#help_items_list{
+    height: 45vh;
+    overflow: auto;
+}
+
+.help_item{
+    text-align: left;
+    margin-top: 10px
+}

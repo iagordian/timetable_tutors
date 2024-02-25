@@ -1,0 +1,27 @@
+
+
+/* Окно ошибки */
+
+#error_modal{
+    top: 30vh;
+    width: 100%;
+}
+
+#func_name,
+#error_text,
+#error_human_text{
+    text-align: left;
+}
+
+#error_win{
+    width: 1140px;    
+}
+
+#error_info_container{
+    overflow-y: scroll;
+    max-height: 15vh;
+    display: none;
+}
+
+
+

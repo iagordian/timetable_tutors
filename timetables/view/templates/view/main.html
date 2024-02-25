@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<div id="page_content">
+
+    <!--Левое боковое меню - навигация по дням недели-->
+    <div class="lateral-menu left_menu">
+
+        <div class="scroll_area">
+            <div class="scroll_area_body">
+
+                {% for weekday_num, weekday_label in weekdays.items() %}
+                    <button value="{{weekday_num}}" class="weekday_num
+                    {% if weekday_number == weekday_num %} active {% endif %}
+                    ">{{weekday_label}}</button>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </div>
+
+    <!--Правое боковое меню - отключение учеников-->
+    <div class="lateral-menu right_menu">
+        <div class="scroll_area">
+            <div class="scroll_area_body">
+
+                    <button id="logout">
+                        <a href="{{url_for('auth_bp.logout')}}">
+                            <img class="logout_img" src="{{url_for('static', filename='icons/lg.png')}}" title="Выход из системы">
+                        </a>
+                    </button>
+
+                    <table class="setting_table">
+                        <tr>
+                            <td colspan="2" class="setting_table_header">
+                                Тьюторы
+                            </td>
+                        </tr>
+                        {% for tutor in tutors %}
+                            <tr>
+                                <td>
+                                    <input class="tm_input" value="{{tutor.tutor_name}}" maxlength="10"
+                                           type="tutor" person_id="{{tutor.tutor_id}}">
+                                </td>
+                                <td class="setting_table_value_td">
+                                    <button class="btn deactivate" value="{{tutor.tutor_id}}" active="{{tutor.active}}" type="tutor">
+                                        {% if tutor.active %}✓{% endif %}
+                                    </button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+
+                    <table class="setting_table">
+                        <tr>
+                            <td colspan="2" class="setting_table_header">
+                                Учащиеся
+                            </td>
+                        </tr>
+                        {% for student in students %}
+                            <tr>
+                                <td>
+                                    <input class="tm_input" value="{{student.student_name}}" maxlength="10"
+                                           type="student" person_id="{{student.student_id}}">
+                                </td>
+                                <td class="setting_table_value_td">
+                                    <button class="btn deactivate" value="{{student.student_id}}" active="{{student.active}}" type="student">
+                                        {% if student.active %}✓{% endif %}
+                                    </button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+             </div>
+        </div>
+
+    </div>
+
+    <!--Заголовок расписания, также является кнопкой для очистки дня недели-->
+    <div class="title">
+        <h1 id="title">
+            {{weekday}}
+        </h1>
+    </div>
+
+    <div>
+    <!--Контейнер с расписанием-->
+        <div id="timetable_container">
+
+            <div id="timetable">
+                {{timetable|safe()}}
+            </div>
+
+            <div id="timetable_buttons_container">
+
+                <div>
+                    <button class="round_btn">
+                        <a href="https://github.com/iagordian/timetable_tutors/tree/main" target="_blank">
+                            <img class="img" src="{{url_for('static', filename='icons/gh.png')}}" title="Ссылка на гитхаб">
+                        </a>
+                    </button>
+
+                    <button class="round_btn" id="clear">
+                        <img class="img" src="{{url_for('static', filename='icons/sv.png')}}" title="Очистить расписание">
+                    </button>
+
+                    <button class="round_btn" id="tm_download">
+                        <a href="{{url_for('view_bp.download_timetable')}}">
+                            <img class="img" src="{{url_for('static', filename='icons/dw.png')}}" title="Скачать расписание">
+                        </a>
+                    </button>
+
+                    <button class="round_btn" id="help">
+                        <img class="img" src="{{url_for('static', filename='icons/qw.png')}}" title="Справка">
+                    </button>
+
+                    <button class="round_btn" title="Поделить на 0" id="zero_division">
+                        \0
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

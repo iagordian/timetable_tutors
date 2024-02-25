@@ -1,0 +1,34 @@
+
+
+<table class="timetable" border="1">
+
+    <tr>
+        <th class="timetable_th tn_title">Тьютор</th>
+        {% for column_ind in range(1, 9) %}
+            <th class="timetable_th">
+                <button class="timetable_btn column_btn" value="{{column_ind}}">{{column_ind}}</button>
+            </th>
+        {% endfor %}
+    </tr>
+
+    {% for row in timetable %}
+        <tr tutor_id="{{row.tutor_id}}">
+            <td class="right_td">
+                <button class="timetable_btn row_btn {{row.tutor_id}}" value="{{row.tutor_id}}">{{row.tutor_name}}</button>
+            </td>
+
+            {% for ceil in row %}
+                <td class="timetable_td">
+                    <select class="timetable_ceil" number="{{loop.index}}">
+                        {% for opt_value, opt_text in timetable.options.items() %}
+                            <option value="{{opt_value}}" {% if ceil.val==opt_value %} selected {% endif %} class="{{opt_value}}">
+                                {{opt_text}}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+
+</table>

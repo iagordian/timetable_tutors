@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='CSS/index.css')}}">
+    <link rel="stylesheet" href="{{url_for('timetable_bp.static', filename='CSS/index.css')}}">
+    <link rel="stylesheet" href="{{url_for('error_bp.static', filename='CSS/index.css')}}">
+    <link rel="stylesheet" href="{{url_for('help_bp.static', filename='CSS/index.css')}}">
+    <link rel="stylesheet" href="{{url_for('auth_bp.static', filename='CSS/index.css')}}">
+
+    <link rel="shortcut icon" href="#">
+
+    <title>Расписания</title>
+</head>
+
+<script src="{{url_for('static', filename='/scripts/jquery-3.6.4.min.js')}}"> </script>
+<script src="{{url_for('static', filename='/scripts/bootstrap.js')}}"> </script>
+<script src="{{url_for('static', filename='/scripts/bootstrap.bundle.js')}}"> </script>
+<script src="{{url_for('static', filename='/scripts/ajaxJSON.js')}}"> </script>
+<script src="{{url_for('error_bp.static', filename='/js/error.js')}}"> </script>
+<script src="{{url_for('help_bp.static', filename='/js/help.js')}}"> </script>
+
+
+{% include '/scripts/scripts_container.html' %}
+
+<body>
+
+    {% include '/error/error_modal.html' %}
+    {% include '/help/help.html' %}
+
+    {% block content %}{% endblock %}
+    
+</body>
+</html>
