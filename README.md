@@ -7,8 +7,8 @@
 
 Краткое изложение структуры класса Timetable
 
+#
 class TM_Ceil:
-
   def __init__(self, val: Optional[uuid.UUID]=None, label: str=''):
     self.val = val
     self.label = label
