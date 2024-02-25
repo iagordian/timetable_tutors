@@ -7,7 +7,7 @@
 
 Краткое изложение структуры класса Timetable
 
-#
+# Ячейка расписания
 class TM_Ceil:
   def __init__(self, val: Optional[uuid.UUID]=None, label: str=''):
     self.val = val
